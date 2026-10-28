@@ -1,0 +1,45 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: event-app-mongo
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE:-event_app}
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build:
+      context: ./server
+    container_name: event-app-backend
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      PORT: ${PORT:-8081}
+      DB: ${DB:-mongodb://mongo:27017/event_app}
+      JWTPRIVATEKEY: ${JWTPRIVATEKEY:-change_me_to_a_secure_secret}
+      SALT: ${SALT:-10}
+    ports:
+      - "8081:8081"
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: ./client
+    container_name: event-app-frontend
+    restart: unless-stopped
+    environment:
+      REACT_APP_API_URL: ${REACT_APP_API_URL:-http://localhost:8081}
+      WDS_SOCKET_PORT: 3001
+      CHOKIDAR_USEPOLLING: "true"
+    ports:
+      - "3001:3000"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:

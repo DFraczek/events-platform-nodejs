@@ -1,0 +1,110 @@
+.mainContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.postsList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.postItem {
+  position: relative;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.editButton,
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #333;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  color: #555;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.commentsList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.commentItem {
+  position: relative;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.actionButtons,
+.commentButtons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.editForm,
+.newCommentForm,
+.newPostForm {
+  margin-top: 20px;
+  width: 97%;
+}
+
+.commentButton,
+.saveButton,
+.postButton {
+  background-color: #3c729e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.saveButton:hover,
+.postButton:hover,
+.commentButton:hover {
+  background-color: #1976d2;
+}
+
+.eventName {
+  color: #3c729e;
+}
